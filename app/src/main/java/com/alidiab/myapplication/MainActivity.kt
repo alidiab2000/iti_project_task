@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity()  {
         biding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(biding.root)
        biding.showInputIti.setOnClickListener{
-           print(biding.showInputIti.text.toString())
+           print(biding.editTextIti.text.toString())
        }
 
       }
