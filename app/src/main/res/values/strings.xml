@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">App ITI</string>
     <string name="show">show</string>
+    <string name="loginform">Login Form</string>
+    <string name="username">UserName</string>
+    <string name="login">Login</string>
+    <string name="username_hint">Username</string>
+    <string name="pass_word">Password</string>
 </resources>

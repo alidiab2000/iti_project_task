@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">تطبيق ITI</string>
+    <string name="show">عرض</string>
+    <string name="loginform">نموذج تسجيل الدخول</string>
+    <string name="username">اسم المستخدم</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="username_hint">اسم المستخدم</string>
+    <string name="pass_word">كلمة المرور</string>
+</resources>
