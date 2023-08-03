@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity()  {
            else {
                Toast.makeText(
                    this,
-                   "Your Email is $userText and your pass is $passText  and your gender is $gender",
+                   "your Email is $userText and your pass is $passText  and your gender is $gender",
                    Toast.LENGTH_LONG
                ).show()
            }

@@ -10,5 +10,5 @@
     <string name="handball" translatable="false">Handball</string>
     <string name="tenis" translatable="false">Tenis</string>
     <string name="male">Male</string>
-    <string name="female">female</string>
+    <string name="female">Female</string>
 </resources>
