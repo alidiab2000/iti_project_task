@@ -6,9 +6,10 @@
     <string name="login">تسجيل الدخول</string>
     <string name="username_hint">اسم المستخدم</string>
     <string name="pass_word">كلمة المرور</string>
-    <string name="football" translatable="false">كرة القدم</string>
-    <string name="handball" translatable="false">كرة اليد</string>
-    <string name="tenis" translatable="false">تنس</string>
+    <string name="football" >كرة القدم</string>
+    <string name="handball"  >كرة اليد</string>
+    <string name="tenis" >تنس</string>
     <string name="male">ذكر</string>
     <string name="female">انثي</string>
+    <string name="finsh">انهاء</string>
 </resources>

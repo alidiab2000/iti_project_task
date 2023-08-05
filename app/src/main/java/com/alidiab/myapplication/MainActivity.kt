@@ -1,5 +1,6 @@
 package com.alidiab.myapplication
 
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,32 +22,37 @@ class MainActivity : AppCompatActivity()  {
 
        biding.loginButton.setOnClickListener{
            val userText : String  = biding.editTextUsername.text.toString()
-           val userempty = biding.editTextUsername.text.isEmpty()
-           val passempty = biding.editTextUsername.text.isEmpty()
            val passText : String  = biding.editPass.text.toString()
-           val gender   = if(biding.radiomale.isChecked) biding.radiomale.text.toString()
+           val gender   = if(biding.radiomale.isChecked)
+               biding.radiomale.text.toString()
            else if(biding.radiofemale.isChecked)
                biding.radiofemale.text.toString()
            else {
                "plz chose gender"
            }
-           if(passempty && userempty || gender =="plz chose gender" ){
-               Toast.makeText(this , "Not vald email or pass or gender" , Toast.LENGTH_LONG).show()
-           }
 
-           else {
-               Toast.makeText(
-                   this,
-                   "your Email is $userText and your pass is $passText  and your gender is $gender",
-                   Toast.LENGTH_LONG
-               ).show()
-           }
+           val toast = "Welcome $userText your pass is  $passText  your gender is $gender "
+           val intent =   Intent(this, SecondActivity::class.java)
+           intent.putExtra("Welcome", toast )
+           startActivityForResult(intent ,  101)
+           onActivityResult(101 , 1 , intent)
        }
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-
+        if (requestCode ==  101) {
+            if(resultCode == 1){
+                Toast.makeText(this,"FaceBook login ",Toast.LENGTH_SHORT).show()
+            }else {
+                Toast.makeText(this,"Google login ",Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 
-
-
 }
+
+
+
+

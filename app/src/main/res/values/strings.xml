@@ -6,9 +6,12 @@
     <string name="login">Login</string>
     <string name="username_hint">Username</string>
     <string name="pass_word">Password</string>
-    <string name="football" translatable="false">Football</string>
-    <string name="handball" translatable="false">Handball</string>
-    <string name="tenis" translatable="false">Tenis</string>
+    <string name="football"  >Football</string>
+    <string name="handball"  >Handball</string>
+    <string name="tenis"  >Tenis</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="facebook" translatable="false">Facebook</string>
+    <string name="google" translatable="false">Google</string>
+    <string name="finsh">finsh</string>
 </resources>
