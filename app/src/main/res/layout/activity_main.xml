@@ -5,21 +5,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2E747A"
-    android:orientation="vertical"
+    android:background="#BF9FC5"
+     android:orientation="vertical"
      >
-
-    <TextView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gu"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".10"
+        />
+     <TextView
+        android:layout_marginTop="50dp"
         android:id="@+id/text1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="30dp"
         android:text="@string/loginform"
-        android:textColor="@color/theme"
+        android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/gu" />
 
     <TextView
         android:id="@+id/text2"
@@ -136,8 +143,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="15dp"
-        android:backgroundTint="@color/theme"
-        android:text="@string/login"
+         android:text="@string/login"
         android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

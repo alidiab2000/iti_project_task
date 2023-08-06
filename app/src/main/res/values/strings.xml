@@ -14,4 +14,8 @@
     <string name="facebook" translatable="false">Facebook</string>
     <string name="google" translatable="false">Google</string>
     <string name="finsh">finsh</string>
+
+    <string name="exit">EXIT</string>
+    <string name="Go_To_second">GoTo sec activity</string>
+    <string name="popUpTitle">Sure need Exit</string>
 </resources>
