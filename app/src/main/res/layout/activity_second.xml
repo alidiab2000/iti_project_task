@@ -1,40 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-     tools:context=".SecondActivity">
+    android:layout_height="match_parent">
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/radioButtonGoogle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/google" />
-
-        <RadioButton
-            android:id="@+id/radioButtonFacebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/facebook"
-            android:backgroundTint="@color/theme"
-             android:checked="true"
-             />
-    </RadioGroup>
-
-    <Button
-        android:id="@+id/loginButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/theme"
-        android:text="@string/finsh"
-        android:layout_below="@id/radioGroup"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </RelativeLayout>

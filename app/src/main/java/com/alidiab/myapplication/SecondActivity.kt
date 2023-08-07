@@ -1,32 +1,35 @@
 package com.alidiab.myapplication
 
-import android.content.Intent
+
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.alidiab.myapplication.databinding.ActivitySecondBinding
 
 class SecondActivity : AppCompatActivity() {
+     private lateinit var recyclerView: RecyclerView
+     private lateinit var postList :ArrayList<Post>
+     private lateinit var postAdapter: PostAdapter
      private lateinit var biding : ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         biding = ActivitySecondBinding .inflate(layoutInflater)
         setContentView(biding.root)
+        recyclerView = findViewById(R.id.recycler)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
-        val toastMessage = intent.extras?.getString("Welcome")?:"Wlecome"
-        Toast.makeText(this
-                               ,toastMessage
-                                      ,Toast.LENGTH_SHORT)
-                                                        .show()
-        biding.loginButton.setOnClickListener{
-            val res = if(biding.radioButtonFacebook.isChecked)
-                1
-            else
-                2
+        postList = ArrayList()
+        postList.add(Post("AliDaib" , "10/2/2003","Welcome my name is ali diab"))
+        postList.add(Post("Ahmed" , "10/2/2003","Welcome my name is Ahmed"))
+        postList.add(Post("fady" , "10/2/2003","Welcome my name is fady"))
+        postList.add(Post(" Daib" , "10/2/2003","Welcome my name is  diab"))
+        postList.add(Post("Ali " , "10/2/2003","Welcome my name is ali"))
+        postList.add(Post("Radwa" , "10/2/2003","Welcome my name is Radwa"))
+        postList.add(Post("Reda" , "10/2/2003","Welcome my name is Reda"))
+        postAdapter = PostAdapter(postList)
+        recyclerView.adapter = postAdapter
 
-            val intent = Intent()
-            setResult(res ,intent)
-            finish()
-        }
     }
 }
