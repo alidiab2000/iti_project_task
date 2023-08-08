@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         biding.loginButton.setOnClickListener {
 
             val intent = Intent(this, SecondActivity::class.java)
-            startActivityForResult(intent, 101)
+            startActivity(intent)
         }
     }
 

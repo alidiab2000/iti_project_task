@@ -1,35 +1,32 @@
 package com.alidiab.myapplication
 
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.alidiab.myapplication.databinding.PostItemBinding
+import com.squareup.picasso.Picasso
 
 class PostAdapter (private  val postList : ArrayList<Post>):
     RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
-    class PostViewHolder(itemView : View):RecyclerView.ViewHolder(itemView) {
-          val username :TextView  = itemView.findViewById(R.id.usernamePost)
-          val postDate :TextView  = itemView.findViewById(R.id.postdate)
-          val postBody :TextView  = itemView.findViewById(R.id.postbody)
-
-    }
-
+   inner class PostViewHolder(val biding : PostItemBinding):RecyclerView.ViewHolder(biding.root)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-       val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list,parent,false)
-       return PostViewHolder(view)
+       val biding = PostItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+       return PostViewHolder(biding)
     }
+    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+        val post = postList[position]
+        holder.biding.usernamePost.text = post.userName
+        holder.biding.postbody.text = post.postBody
+        holder.biding.postdate.text = post.postDate
+        if(post.imageUrl.isNotEmpty()){
+            Picasso.get()
+                .load(post.imageUrl)
+                .into(holder.biding.profileImage)
+        }
 
+    }
     override fun getItemCount(): Int {
         return postList.size
     }
-
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        val post = postList[position]
-        holder.username.text = post.userName
-        holder.postBody.text = post.postBody
-        holder.postDate.text = post.postDate
-
-    }
-
 }

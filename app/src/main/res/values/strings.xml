@@ -18,4 +18,5 @@
     <string name="exit">EXIT</string>
     <string name="Go_To_second">GoTo sec activity</string>
     <string name="popUpTitle">Sure need Exit</string>
+    <string name="click">Click</string>
 </resources>

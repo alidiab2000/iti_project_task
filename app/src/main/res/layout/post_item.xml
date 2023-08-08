@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp">
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <ImageView
+           android:id="@+id/profileImage"
+           android:layout_width="70dp"
+           android:layout_height="70dp"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           android:src="@drawable/ic_launcher_foreground"
+           android:layout_marginEnd="16dp"/>
+       <TextView
+           android:id="@+id/usernamePost"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textSize="20sp"
+           android:textStyle="bold"
+           android:text="alidiab"
+           app:layout_constraintTop_toTopOf="@id/profileImage"
+           app:layout_constraintStart_toEndOf="@id/profileImage"
+          android:layout_marginStart="15dp"
+            />
+
+       <TextView
+           android:id="@+id/postdate"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="8dp"
+           android:text="10/3/2003"
+           android:textSize="16sp"
+
+           app:layout_constraintStart_toStartOf="@+id/usernamePost"
+           app:layout_constraintTop_toBottomOf="@id/usernamePost" />
+
+       <TextView
+           android:id="@+id/postbody"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="my name is ali diab"
+           android:textColor="@android:color/darker_gray"
+           android:textSize="14sp"
+
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/profileImage" />
+
+       <Button
+           android:id="@+id/thirdbt"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_margin="10dp"
+           android:text="@string/click"
+           android:backgroundTint="@color/black"
+           app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/postbody" />
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
