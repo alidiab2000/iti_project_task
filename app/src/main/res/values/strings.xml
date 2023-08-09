@@ -19,4 +19,5 @@
     <string name="Go_To_second">GoTo sec activity</string>
     <string name="popUpTitle">Sure need Exit</string>
     <string name="click">Click</string>
+    <string name="logout">Log Out</string>
 </resources>
