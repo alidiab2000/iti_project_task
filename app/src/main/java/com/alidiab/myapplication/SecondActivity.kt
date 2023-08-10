@@ -5,41 +5,69 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.text.Layout
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.alidiab.myapplication.databinding.ActivitySecondBinding
+import com.alidiab.myapplication.model.User
+import com.alidiab.myapplication.utils.ApiInterface
+
+import com.alidiab.myapplication.utils.RetrofitClient
+import kotlinx.coroutines.launch
 
 
 class SecondActivity : AppCompatActivity() {
-
-      private lateinit var sharedpref :SharedPreferences
-      private lateinit var biding : ActivitySecondBinding
-     override fun onCreate(savedInstanceState: Bundle?) {
+    private lateinit var userList :List<User>
+    private lateinit var userAdapter: UserAdapter
+    private lateinit var sharedpref: SharedPreferences
+    private lateinit var biding: ActivitySecondBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        biding = ActivitySecondBinding .inflate(layoutInflater)
+        biding = ActivitySecondBinding.inflate(layoutInflater)
         setContentView(biding.root)
-         sharedpref = applicationContext.getSharedPreferences("UserPref", Context.MODE_PRIVATE)
-        biding.TextUsername.text = "Welcome ${sharedpref.getString("UserName","User")}"
+        sharedpref = applicationContext.getSharedPreferences("UserPref", Context.MODE_PRIVATE)
+        biding.recycler.setHasFixedSize(true)
+        biding.recycler.layoutManager = LinearLayoutManager(this)
+/*=============================================================================================*/
+        val retrofit = RetrofitClient.getInstance().create(ApiInterface::class.java)
+        lifecycleScope.launchWhenCreated {
+            val response  =  retrofit.getAllUser()
+            if(response.isSuccessful){
+                userList = response.body()?.data!!
+                userAdapter = UserAdapter(userList)
+                biding.recycler.adapter = userAdapter
+            }else{
+                Toast.makeText(this@SecondActivity , "Error ",Toast.LENGTH_LONG).show()
+            }
+        }
     }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_main_activity, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {
 
                 val editor = sharedpref.edit()
-                editor.remove("UserName" )
-                editor.remove("PassWord"  )
-                editor.putBoolean("login" , false)
+                editor.remove("UserName")
+                editor.remove("PassWord")
+                editor.putBoolean("login", false)
                 editor.commit()
-                startActivity(Intent(this , MainActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
                 finish()
                 return true
             }
+
             else -> return super.onOptionsItemSelected(item)
         }
     }
+
 }

@@ -29,7 +29,7 @@
             />
 
        <TextView
-           android:id="@+id/postdate"
+           android:id="@+id/userId"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_marginTop="8dp"
@@ -40,7 +40,7 @@
            app:layout_constraintTop_toBottomOf="@id/usernamePost" />
 
        <TextView
-           android:id="@+id/postbody"
+           android:id="@+id/email"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="my name is ali diab"
@@ -59,7 +59,7 @@
            android:backgroundTint="@color/black"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/postbody" />
+           app:layout_constraintTop_toBottomOf="@+id/userId" />
    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
