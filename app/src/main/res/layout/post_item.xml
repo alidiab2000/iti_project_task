@@ -17,7 +17,7 @@
            android:src="@drawable/ic_launcher_foreground"
            android:layout_marginEnd="16dp"/>
        <TextView
-           android:id="@+id/usernamePost"
+           android:id="@+id/userIdPost"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textSize="20sp"
@@ -29,27 +29,36 @@
             />
 
        <TextView
-           android:id="@+id/userId"
+           android:id="@+id/postId"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:layout_marginTop="8dp"
            android:text="10/3/2003"
            android:textSize="16sp"
 
-           app:layout_constraintStart_toStartOf="@+id/usernamePost"
-           app:layout_constraintTop_toBottomOf="@id/usernamePost" />
+           app:layout_constraintStart_toStartOf="@+id/userIdPost"
+           app:layout_constraintTop_toBottomOf="@id/userIdPost" />
 
        <TextView
-           android:id="@+id/email"
+           android:id="@+id/title"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="my name is ali diab"
            android:textColor="@android:color/darker_gray"
            android:textSize="14sp"
-
            app:layout_constraintStart_toStartOf="parent"
            app:layout_constraintTop_toBottomOf="@+id/profileImage" />
 
+
+       <TextView
+           android:id="@+id/body"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Body"
+           android:textSize="20sp"
+           app:layout_constraintStart_toStartOf="@id/title"
+           app:layout_constraintTop_toBottomOf="@id/title"
+           />
        <Button
            android:id="@+id/thirdbt"
            android:layout_width="wrap_content"
@@ -59,7 +68,7 @@
            android:backgroundTint="@color/black"
            app:layout_constraintEnd_toEndOf="parent"
            app:layout_constraintStart_toStartOf="parent"
-           app:layout_constraintTop_toBottomOf="@+id/userId" />
+           app:layout_constraintTop_toBottomOf="@+id/body" />
    </androidx.constraintlayout.widget.ConstraintLayout>
 
 

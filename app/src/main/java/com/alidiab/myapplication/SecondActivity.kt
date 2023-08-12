@@ -5,25 +5,24 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.text.Layout
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView.LayoutManager
+import com.alidiab.myapplication.Adapters.PostAdapter
 import com.alidiab.myapplication.databinding.ActivitySecondBinding
-import com.alidiab.myapplication.model.User
+import com.alidiab.myapplication.model.Post
 import com.alidiab.myapplication.utils.ApiInterface
+import com.alidiab.myapplication.utils.MyCustomClickListener
 
 import com.alidiab.myapplication.utils.RetrofitClient
-import kotlinx.coroutines.launch
 
 
-class SecondActivity : AppCompatActivity() {
-    private lateinit var userList :List<User>
-    private lateinit var userAdapter: UserAdapter
+class SecondActivity : AppCompatActivity() , MyCustomClickListener {
+    private lateinit var postList :List<Post>
+    private lateinit var postAdapter: PostAdapter
     private lateinit var sharedpref: SharedPreferences
     private lateinit var biding: ActivitySecondBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,17 +33,21 @@ class SecondActivity : AppCompatActivity() {
         biding.recycler.setHasFixedSize(true)
         biding.recycler.layoutManager = LinearLayoutManager(this)
 /*=============================================================================================*/
-        val retrofit = RetrofitClient.getInstance().create(ApiInterface::class.java)
-        lifecycleScope.launchWhenCreated {
-            val response  =  retrofit.getAllUser()
-            if(response.isSuccessful){
-                userList = response.body()?.data!!
-                userAdapter = UserAdapter(userList)
-                biding.recycler.adapter = userAdapter
-            }else{
-                Toast.makeText(this@SecondActivity , "Error ",Toast.LENGTH_LONG).show()
+        biding.BTSelect.setOnClickListener{
+            val retrofit = RetrofitClient.getInstance().create(ApiInterface::class.java)
+            lifecycleScope.launchWhenCreated {
+                val response  =  retrofit.getUserFromId(biding.edUserId.text.toString().toInt())
+                if(response.isSuccessful){
+                    postList = response.body()!!
+                    postAdapter = PostAdapter(postList , this@SecondActivity)
+                    biding.recycler.adapter = postAdapter
+                }else{
+                    Toast.makeText(this@SecondActivity , "Error ",Toast.LENGTH_LONG).show()
+                }
             }
         }
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -55,7 +58,6 @@ class SecondActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.logout -> {
-
                 val editor = sharedpref.edit()
                 editor.remove("UserName")
                 editor.remove("PassWord")
@@ -68,6 +70,13 @@ class SecondActivity : AppCompatActivity() {
 
             else -> return super.onOptionsItemSelected(item)
         }
+    }
+
+    override fun onItemClick(post: Post, position: Int) {
+         val intent = Intent(this@SecondActivity ,ThirdActivity::class.java )
+         intent.putExtra("postId", post.id)
+
+         startActivity(intent)
     }
 
 }

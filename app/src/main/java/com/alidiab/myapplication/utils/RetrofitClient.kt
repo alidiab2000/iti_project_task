@@ -10,7 +10,7 @@ object RetrofitClient {
      val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
      val okHttpClient = OkHttpClient.Builder().addInterceptor(interceptor).build()
      val retrofit :Retrofit = Retrofit.Builder()
-         .baseUrl("https://reqres.in/api/")
+         .baseUrl("https://jsonplaceholder.typicode.com/")
          .addConverterFactory(GsonConverterFactory.create())
          .client(okHttpClient)
          .build()
