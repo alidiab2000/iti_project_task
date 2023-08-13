@@ -34,7 +34,8 @@ class SecondActivity : AppCompatActivity() , MyCustomClickListener {
         biding.recycler.layoutManager = LinearLayoutManager(this)
 /*=============================================================================================*/
         biding.BTSelect.setOnClickListener{
-            val retrofit = RetrofitClient.getInstance().create(ApiInterface::class.java)
+            val retrofit = RetrofitClient.getInstance("https://jsonplaceholder.typicode.com/")
+                .create(ApiInterface::class.java)
             lifecycleScope.launchWhenCreated {
                 val response  =  retrofit.getUserFromId(biding.edUserId.text.toString().toInt())
                 if(response.isSuccessful){

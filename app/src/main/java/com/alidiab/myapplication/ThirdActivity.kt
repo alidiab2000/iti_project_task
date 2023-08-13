@@ -7,6 +7,7 @@ import android.os.PersistableBundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.alidiab.myapplication.Adapters.CommentAdapter
 
 import com.alidiab.myapplication.databinding.ActivityThirdBinding
@@ -23,11 +24,12 @@ class ThirdActivity :AppCompatActivity(){
         binding= ActivityThirdBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val postID = intent.extras?.getInt("postId",1)
-        val retrofit = RetrofitClient.getInstance().create(ApiInterface::class.java)
+        val retrofit = RetrofitClient.getInstance("https://jsonplaceholder.typicode.com/").create(ApiInterface::class.java)
         lifecycleScope.launchWhenCreated {
             val response = retrofit.getComments(postID!!)
             commentList = response.body()!!
             commentAdapter = CommentAdapter(commentList)
+            binding.recycler1.layoutManager = LinearLayoutManager(this@ThirdActivity)
             binding.recycler1.adapter = commentAdapter
         }
     }
