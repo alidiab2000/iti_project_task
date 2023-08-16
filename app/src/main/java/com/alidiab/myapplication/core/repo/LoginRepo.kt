@@ -13,12 +13,15 @@ class LoginRepo(private val context: Context, private val binding: ActivityMainB
     private val retrofit = RetrofitClient.getInstance("https://dummyjson.com/")
 
     suspend fun login(userName: String, password: String): Response<UserResponse> {
+        sharedPref()
+        return retrofit.login(LoginRequest(userName, password))
+    }
+    private fun sharedPref(){
         val sharedPreferences: SharedPreferences = context.getSharedPreferences("UserPref", MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("UserName" , binding.editTextUsername.text.toString())
         editor.putString("PassWord" , binding.editPass.text.toString())
         editor.putBoolean("login" , true)
         editor.apply()
-        return retrofit.login(LoginRequest(userName, password))
     }
 }

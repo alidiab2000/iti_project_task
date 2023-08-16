@@ -12,7 +12,6 @@ class LoginActivity : AppCompatActivity() {
 
       private lateinit var biding: ActivityMainBinding
       private lateinit var viewModel : LoginViewModel
-    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         biding = ActivityMainBinding.inflate(layoutInflater)
