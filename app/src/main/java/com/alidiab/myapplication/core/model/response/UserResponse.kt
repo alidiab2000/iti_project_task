@@ -1,4 +1,4 @@
-package com.alidiab.myapplication.model
+package com.alidiab.myapplication.core.model.response
 
 import com.google.gson.annotations.SerializedName
 

@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.alidiab.myapplication.databinding.CommentItemBinding
 
-import com.alidiab.myapplication.model.Comment
+import com.alidiab.myapplication.core.model.Comment
 
 
 class CommentAdapter (private  val commentList : List<Comment>  ):

@@ -1,5 +1,7 @@
-package com.alidiab.myapplication.model
+package com.alidiab.myapplication.core.model.response
 
+import com.alidiab.myapplication.core.model.Post
+import com.alidiab.myapplication.core.model.Support
 import com.google.gson.annotations.SerializedName
 
 data class ResponseUserList(

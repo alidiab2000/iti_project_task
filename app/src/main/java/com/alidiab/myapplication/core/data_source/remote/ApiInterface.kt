@@ -1,9 +1,9 @@
-package com.alidiab.myapplication.utils
+package com.alidiab.myapplication.core.data_source.remote
 
-import com.alidiab.myapplication.model.Comment
-import com.alidiab.myapplication.model.LoginRequest
-import com.alidiab.myapplication.model.Post
-import com.alidiab.myapplication.model.UserResponse
+import com.alidiab.myapplication.core.model.Comment
+import com.alidiab.myapplication.core.model.body.LoginRequest
+import com.alidiab.myapplication.core.model.Post
+import com.alidiab.myapplication.core.model.response.UserResponse
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

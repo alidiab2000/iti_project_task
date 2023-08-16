@@ -3,12 +3,12 @@ package com.alidiab.myapplication.Adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.alidiab.myapplication.utils.MyCustomClickListener
+import com.alidiab.myapplication.screen.MyCustomClickListener
 import com.alidiab.myapplication.databinding.PostItemBinding
-import com.alidiab.myapplication.model.Post
+import com.alidiab.myapplication.core.model.Post
 
 
-class PostAdapter (private  val postList : List<Post> , val listener: MyCustomClickListener):
+class PostAdapter (private  val postList : List<Post>, val listener: MyCustomClickListener):
     RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     inner class PostViewHolder(val biding : PostItemBinding):RecyclerView.ViewHolder(biding.root)
 

@@ -1,4 +1,4 @@
-package com.alidiab.myapplication
+package com.alidiab.myapplication.screen
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.alidiab.myapplication.UI.Login.LoginActivity
+import com.alidiab.myapplication.UI.Second.MainActivity
 
 import com.alidiab.myapplication.databinding.ActivitySplashBinding
 
@@ -22,10 +24,10 @@ class SplashActivity : AppCompatActivity() {
 
         Handler().postDelayed({
             if(isLog){
-                startActivity(Intent(this, SecondActivity::class.java))
+                startActivity(Intent(this, MainActivity::class.java))
             }else
             {
-                startActivity(Intent(this, MainActivity::class.java))
+                startActivity(Intent(this, LoginActivity::class.java))
             }
             finish()
 
